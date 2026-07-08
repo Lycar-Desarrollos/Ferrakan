@@ -5,10 +5,10 @@
     --border-color: rgba(255, 255, 255, 0.08);
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --primary: #f97316; /* Ferrakan Orange */
-    --primary-glow: rgba(249, 115, 22, 0.15);
-    --accent: #f59e0b; /* Amber */
-    --accent-glow: rgba(245, 158, 11, 0.1);
+    --primary: #f2b705; /* Ferrakan Yellow from Logo */
+    --primary-glow: rgba(242, 183, 5, 0.15);
+    --accent: #eab308; /* Accent Gold */
+    --accent-glow: rgba(234, 179, 8, 0.1);
     --success: #10b981;
     --transition-speed: 0.3s;
     --font-heading: 'Outfit', sans-serif;
@@ -132,15 +132,15 @@ body {
 @keyframes pulse {
     0% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+        box-shadow: 0 0 0 0 rgba(242, 183, 5, 0.7);
     }
     70% {
         transform: scale(1);
-        box-shadow: 0 0 0 8px rgba(249, 115, 22, 0);
+        box-shadow: 0 0 0 8px rgba(242, 183, 5, 0);
     }
     100% {
         transform: scale(0.95);
-        box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+        box-shadow: 0 0 0 0 rgba(242, 183, 5, 0);
     }
 }
 
@@ -171,8 +171,8 @@ body {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: rgba(249, 115, 22, 0.1);
-    border: 1px solid rgba(249, 115, 22, 0.2);
+    background: rgba(242, 183, 5, 0.1);
+    border: 1px solid rgba(242, 183, 5, 0.2);
     color: var(--primary);
     padding: 0.5rem 1rem;
     border-radius: 8px;
@@ -364,9 +364,9 @@ body {
 }
 
 .submit-btn:hover {
-    background: #ea580c; /* darker orange */
+    background: #d9a304; /* darker gold yellow */
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 8px 24px rgba(242, 183, 5, 0.3);
 }
 
 .submit-btn:active {
@@ -438,7 +438,7 @@ body {
 }
 
 .feature-card:hover {
-    border-color: rgba(249, 115, 22, 0.3);
+    border-color: rgba(242, 183, 5, 0.3);
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
     background: rgba(22, 28, 45, 0.6);
@@ -447,7 +447,7 @@ body {
 .feature-icon {
     width: 48px;
     height: 48px;
-    background: rgba(249, 115, 22, 0.1);
+    background: rgba(242, 183, 5, 0.1);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -578,4 +578,81 @@ body {
         flex-direction: column;
         gap: 0.75rem;
     }
+}
+
+/* Logo and Hero Card Styles */
+.logo-img-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--primary);
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-speed) ease;
+}
+
+.logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 15%; /* Crops to show only the dog + FK logo part */
+    transform: scale(1.1);
+}
+
+.logo:hover .logo-img-wrapper {
+    transform: scale(1.05) rotate(5deg);
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--text-primary);
+}
+
+.logo-k {
+    color: var(--primary);
+}
+
+.hero-logo-card {
+    width: 220px;
+    height: 220px;
+    margin: 0 auto 2.5rem auto;
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 1.25rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border: 4px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-logo-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--primary-glow) 0%, transparent 60%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+    border-radius: 12px;
 }
